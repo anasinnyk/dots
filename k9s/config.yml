@@ -1,0 +1,259 @@
+k9s:
+  refreshRate: 2
+  maxConnRetry: 5
+  enableMouse: false
+  headless: false
+  logoless: false
+  crumbsless: false
+  readOnly: false
+  noExitOnCtrlC: false
+  noIcons: false
+  skipLatestRevCheck: false
+  logger:
+    tail: 100
+    buffer: 5000
+    sinceSeconds: 60
+    fullScreenLogs: false
+    textWrap: false
+    showTime: false
+  currentContext: devops
+  currentCluster: gke_macpaw-devops_us-central1-a_devops
+  clusters:
+    arn:aws:eks:us-west-2:736185800937:cluster/setapp-staging-v1:
+      namespace:
+        active: opentelemetry-collector
+        lockFavorites: false
+        favorites:
+        - vendor-payment-setapp
+        - opentelemetry-collector
+        - flux-system
+        - rabbitmq-cluster-ci
+        - cert-manager
+        - ci-customer-setapp
+        - test-core-setapp
+        - test-mfa-setapp
+        - default
+      view:
+        active: pod
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        labels: {}
+      portForwardAddress: localhost
+    arn:aws:eks:us-west-2:998652485435:cluster/setapp-production-v1:
+      namespace:
+        active: default
+        lockFavorites: false
+        favorites:
+        - flux-system
+        - opentelemetry-collector
+        - default
+      view:
+        active: pod
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        labels: {}
+      portForwardAddress: localhost
+    china:
+      namespace:
+        active: prometheus
+        lockFavorites: false
+        favorites:
+        - prometheus
+        - nginx-ingress
+        - preview-cleaner
+        - flux-system
+        - cert-manager
+        - all
+        - default
+      view:
+        active: pods
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        labels: {}
+      portForwardAddress: localhost
+    gke_devops-199312_us-central1-a_devops-v2:
+      namespace:
+        active: all
+        lockFavorites: false
+        favorites:
+        - all
+        - flux
+        - external-dns
+        - atlantis
+        - default
+      view:
+        active: po
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        labels: {}
+      portForwardAddress: localhost
+    gke_macpaw-devops_us-central1-a_devops:
+      namespace:
+        active: flux-system
+        lockFavorites: false
+        favorites:
+        - prometheus
+        - artifact-registry
+        - flux-system
+        - moon
+        - kyverno
+        - 1password
+        - all
+        - mimir
+        - tempo
+      view:
+        active: gitrepo
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        labels: {}
+      portForwardAddress: localhost
+    gke_macpaw-production_us-central1-a_production:
+      namespace:
+        active: cert-manager
+        lockFavorites: false
+        favorites:
+        - cert-manager
+        - village-backend-main
+        - bill-gate-site-main
+        - all
+        - cleanmymac-public-api-master
+        - default
+        - clearvpn-backend-master
+        - clearvpn
+        - platform-common-master
+      view:
+        active: pod
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        labels: {}
+      portForwardAddress: localhost
+    gke_macpaw-secret_us-central1-a_secret:
+      namespace:
+        active: all
+        lockFavorites: false
+        favorites:
+        - opentelemetry-collector
+        - flux-system
+        - all
+        - default
+      view:
+        active: pod
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        labels: {}
+      portForwardAddress: localhost
+    gke_macpaw-staging_us-central1-a_staging:
+      namespace:
+        active: all
+        lockFavorites: false
+        favorites:
+        - all
+        - cleanmymac-cmd-pr-347
+        - cleanmymac-form-gateway-develop
+        - cleanmymac-cmd-pr-344
+        - flux-system
+        - cleanmymac-cmd-develop
+        - cleanmymac-cmd
+      view:
+        active: pod
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        labels: {}
+      portForwardAddress: localhost
+    rancher-desktop:
+      namespace:
+        active: all
+        lockFavorites: false
+        favorites:
+        - kpack-builder
+        - kpack
+        - kube-system
+        - all
+        - flux-system
+        - default
+      view:
+        active: pod
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        labels: {}
+      portForwardAddress: localhost
+  thresholds:
+    cpu:
+      critical: 90
+      warn: 70
+    memory:
+      critical: 90
+      warn: 70
+  screenDumpDir: /var/folders/pf/6qqkqzcj3s52dwhk0s4gzm9c0000gp/T/k9s-screens-anasinnyk
